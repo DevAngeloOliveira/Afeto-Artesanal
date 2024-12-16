@@ -7,21 +7,43 @@
   --background: #FFFFFF;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-full transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-brand-accent text-brand-light hover:bg-brand-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-brand-beige text-brand-dark hover:bg-brand-accent/10;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-}
-
-.handwriting {
-  font-family: var(--font-handwriting);
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 /* Estilização personalizada para scrollbar */
