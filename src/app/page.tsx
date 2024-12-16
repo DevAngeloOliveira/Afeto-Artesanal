@@ -48,7 +48,7 @@ export default function Home() {
             <h2 className="font-display text-3xl text-brand-dark text-center mb-12">Sobre Nós</h2>
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-brand-muted mb-6">
-                Afeto Artesanal nasceu do amor pelo artesanato e da vontade de criar peças únicas e especiais.
+                O Afeto Artesanal nasceu do amor pelo artesanato e da vontade de criar peças únicas e especiais.
                 Cada produto é feito à mão, com dedicação e carinho, pensando em trazer mais afeto para o seu dia a dia.
               </p>
               <p className="text-lg text-brand-muted">
