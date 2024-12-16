@@ -5,19 +5,22 @@ import "./globals.css";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: '--font-sans',
+  variable: "--font-sans",
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: '--font-display',
+  variable: "--font-display",
+  display: "swap",
 });
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["400", "600"],
-  variable: '--font-handwriting',
+  variable: "--font-handwriting",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={`${poppins.variable} ${montserrat.variable} ${dancingScript.variable} font-sans bg-brand-light text-brand-dark`}>
+    <html lang="pt-BR" className={`${poppins.variable} ${montserrat.variable} ${dancingScript.variable}`}>
+      <body className="font-sans bg-brand-light text-brand-dark">
         {children}
       </body>
     </html>
