@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -71,15 +71,27 @@ export default function Footer() {
           <p className="text-brand-light/60 mb-4">&copy; {new Date().getFullYear()} Afeto Artesanal. Todos os direitos reservados.</p>
           <div className="flex items-center justify-center gap-2 text-brand-light/60">
             <span>Desenvolvido por</span>
-            <a 
-              href="https://www.instagram.com/http_angelo.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-brand-accent transition-colors"
-            >
-              <span>Angelo Oliveira</span>
-              <FaInstagram className="text-lg" />
-            </a>
+            <span className="font-medium">Angelo Oliveira</span>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.instagram.com/http_angelo.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-accent transition-colors"
+                title="Instagram"
+              >
+                <FaInstagram className="text-lg" />
+              </a>
+              <a 
+                href="https://github.com/DevAngeloOliveira/DevAngeloOliveira"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-accent transition-colors"
+                title="GitHub"
+              >
+                <FaGithub className="text-lg" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
