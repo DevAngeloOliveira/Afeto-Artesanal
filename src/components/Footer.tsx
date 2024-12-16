@@ -67,8 +67,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-brand-light/10 mt-8 pt-8 text-center text-brand-light/60">
-          <p>&copy; {new Date().getFullYear()} Afeto Artesanal. Todos os direitos reservados.</p>
+        <div className="border-t border-brand-light/10 mt-8 pt-8 text-center">
+          <p className="text-brand-light/60 mb-4">&copy; {new Date().getFullYear()} Afeto Artesanal. Todos os direitos reservados.</p>
+          <div className="flex items-center justify-center gap-2 text-brand-light/60">
+            <span>Desenvolvido por</span>
+            <a 
+              href="https://www.instagram.com/http_angelo.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-brand-accent transition-colors"
+            >
+              <span>Angelo Oliveira</span>
+              <FaInstagram className="text-lg" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
