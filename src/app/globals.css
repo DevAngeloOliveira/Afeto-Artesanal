@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #2D2D2D;
+  --background: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* Estilização personalizada para scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E5DDD3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B7355;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A49B8F;
+}
+
+/* Animações suaves */
+.transition-all {
+  transition-duration: 300ms;
+}
+
+/* Estilo para links */
+a {
+  transition: all 0.3s ease;
+}
+
+/* Estilo para botões */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Efeito de hover em cards */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
