@@ -5,21 +5,18 @@ import "./globals.css";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
   display: "swap",
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: "--font-display",
   display: "swap",
 });
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["400", "600"],
-  variable: "--font-handwriting",
   display: "swap",
 });
 
@@ -34,8 +31,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${montserrat.variable} ${dancingScript.variable}`}>
-      <body className="font-sans bg-brand-light text-brand-dark">
+    <html lang="pt-BR">
+      <body className={`${poppins.className} bg-brand-light text-brand-dark`}
+        style={{
+          '--font-sans': poppins.style.fontFamily,
+          '--font-display': montserrat.style.fontFamily,
+          '--font-handwriting': dancingScript.style.fontFamily,
+        } as React.CSSProperties}
+      >
         {children}
       </body>
     </html>

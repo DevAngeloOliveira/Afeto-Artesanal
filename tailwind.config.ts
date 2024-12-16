@@ -20,9 +20,9 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
-        display: ['var(--font-display)'],
-        handwriting: ['var(--font-handwriting)'],
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui'],
+        display: ['var(--font-display)', 'ui-serif', 'Georgia'],
+        handwriting: ['var(--font-handwriting)', 'cursive'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
