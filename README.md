@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Afeto Artesanal - Landing Page
 
-## Getting Started
+Landing page desenvolvida para a loja Afeto Artesanal, especializada em artesanato personalizado e buquês eternos.
 
-First, run the development server:
+## 🚀 Tecnologias
+
+- [Next.js 13](https://nextjs.org/) - Framework React com App Router
+- [React 18](https://reactjs.org/) - Biblioteca JavaScript para interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript com tipagem
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
+- [React Icons](https://react-icons.github.io/react-icons/) - Biblioteca de ícones
+
+## 📋 Funcionalidades
+
+- **Página Inicial**
+  - Hero Section com chamada para ação
+  - Seção Sobre com história da marca
+  - Seção de Contato com links para redes sociais
+
+- **Catálogo de Produtos**
+  - Listagem de produtos por categoria
+  - Filtro por tipo de produto
+  - Sistema de carrinho de compras
+  - Adicionais personalizáveis
+  - Finalização de pedido via WhatsApp
+
+- **Design Responsivo**
+  - Layout adaptável para todos os dispositivos
+  - Menu mobile otimizado
+  - Imagens otimizadas
+
+## 🎨 Design System
+
+### Cores
+- Bege: `#E5DDD3`
+- Escuro: `#2D2D2D`
+- Branco: `#FFFFFF`
+- Accent: `#8B7355`
+- Muted: `#A49B8F`
+
+### Tipografia
+- Sans: Poppins (400, 500, 600, 700)
+- Display: Montserrat (300, 400, 500, 600)
+- Handwriting: Dancing Script (400, 600)
+
+## 🛍️ Produtos
+
+### Buquê Eterno
+- Rosa Única
+- Buquê 3 Rosas
+- Buquê 7 Rosas
+- Buquê 12 Rosas
+- Buquê 20 Rosas
+- Buquê 3 Rosas com Perfume
+- Buquê 3 Rosas com Ursinho
+
+### Buquê de Borboleta
+- Buquê 40 Borboletas
+- Buquê 50 Borboletas
+- Buquê 60 Borboletas
+- Buquê 100 Borboletas
+
+### Adicionais
+- Polaróides (3 unidades) - R$ 15,00
+- Adicional Glitter - R$ 4,00
+- Ursinho - R$ 20,00
+- LED - R$ 10,00
+
+## 🚀 Como executar
 
 ```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/afeto-artesanal.git
+
+# Entre na pasta do projeto
+cd afeto-artesanal
+
+# Instale as dependências
+npm install
+
+# Execute o projeto em desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Para build de produção
+npm run build
+
+# Para executar a versão de produção
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📱 Contato
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Instagram: [@oafetoartesanal](https://www.instagram.com/oafetoartesanal/)
+- WhatsApp: [(83) 98835-6953](https://api.whatsapp.com/send/?phone=5583988356953)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Licença
 
-## Learn More
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido com ❤️ por [Angelo Oliveira](https://github.com/DevAngeloOliveira)
