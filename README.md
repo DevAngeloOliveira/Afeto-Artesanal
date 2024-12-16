@@ -1,102 +1,142 @@
-# Afeto Artesanal - Landing Page
+# Afeto Artesanal 🌹
 
-Landing page desenvolvida para a loja Afeto Artesanal, especializada em artesanato personalizado e buquês eternos.
+Landing page e catálogo digital para a Afeto Artesanal, uma loja especializada em buquês eternos e buquês de borboletas artesanais.
+
+## 🌟 Funcionalidades
+
+- **Página Inicial**
+  - Apresentação da marca
+  - Destaques dos produtos
+  - Links para redes sociais
+  - Contato direto via WhatsApp
+
+- **Catálogo de Produtos**
+  - Filtro por categorias
+  - Visualização em grid responsivo
+  - Detalhes dos produtos
+  - Adição rápida ao carrinho
+  - Preços e informações detalhadas
+
+- **Página de Detalhes do Produto**
+  - Imagens em alta resolução
+  - Descrição completa
+  - Seleção de quantidade
+  - Adicionais disponíveis
+  - Botão de compra rápida
+
+- **Carrinho de Compras**
+  - Gestão de produtos
+  - Seleção de adicionais
+  - Atualização de quantidades
+  - Cálculo automático de valores
+  - Finalização via WhatsApp
 
 ## 🚀 Tecnologias
 
 - [Next.js 13](https://nextjs.org/) - Framework React com App Router
-- [React 18](https://reactjs.org/) - Biblioteca JavaScript para interfaces
-- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript com tipagem
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
-- [React Icons](https://react-icons.github.io/react-icons/) - Biblioteca de ícones
+- [TypeScript](https://www.typescriptlang.org/) - Tipagem estática
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
+- [React Icons](https://react-icons.github.io/react-icons/) - Ícones
+- [ESLint](https://eslint.org/) - Linter
+- [PostCSS](https://postcss.org/) - Processador CSS
 
-## 📋 Funcionalidades
+## 📦 Instalação
 
-- **Página Inicial**
-  - Hero Section com chamada para ação
-  - Seção Sobre com história da marca
-  - Seção de Contato com links para redes sociais
-
-- **Catálogo de Produtos**
-  - Listagem de produtos por categoria
-  - Filtro por tipo de produto
-  - Sistema de carrinho de compras
-  - Adicionais personalizáveis
-  - Finalização de pedido via WhatsApp
-
-- **Design Responsivo**
-  - Layout adaptável para todos os dispositivos
-  - Menu mobile otimizado
-  - Imagens otimizadas
-
-## 🎨 Design System
-
-### Cores
-- Bege: `#E5DDD3`
-- Escuro: `#2D2D2D`
-- Branco: `#FFFFFF`
-- Accent: `#8B7355`
-- Muted: `#A49B8F`
-
-### Tipografia
-- Sans: Poppins (400, 500, 600, 700)
-- Display: Montserrat (300, 400, 500, 600)
-- Handwriting: Dancing Script (400, 600)
-
-## 🛍️ Produtos
-
-### Buquê Eterno
-- Rosa Única
-- Buquê 3 Rosas
-- Buquê 7 Rosas
-- Buquê 12 Rosas
-- Buquê 20 Rosas
-- Buquê 3 Rosas com Perfume
-- Buquê 3 Rosas com Ursinho
-
-### Buquê de Borboleta
-- Buquê 40 Borboletas
-- Buquê 50 Borboletas
-- Buquê 60 Borboletas
-- Buquê 100 Borboletas
-
-### Adicionais
-- Polaróides (3 unidades) - R$ 15,00
-- Adicional Glitter - R$ 4,00
-- Ursinho - R$ 20,00
-- LED - R$ 10,00
-
-## 🚀 Como executar
-
-```bash
-# Clone o repositório
+1. Clone o repositório:
+\`\`\`bash
 git clone https://github.com/seu-usuario/afeto-artesanal.git
+\`\`\`
 
-# Entre na pasta do projeto
+2. Instale as dependências:
+\`\`\`bash
 cd afeto-artesanal
-
-# Instale as dependências
 npm install
+\`\`\`
 
-# Execute o projeto em desenvolvimento
+3. Configure as variáveis de ambiente:
+\`\`\`bash
+cp .env.example .env.local
+\`\`\`
+
+4. Inicie o servidor de desenvolvimento:
+\`\`\`bash
 npm run dev
+\`\`\`
 
-# Para build de produção
-npm run build
+## 🛠️ Scripts Disponíveis
 
-# Para executar a versão de produção
-npm start
-```
+- \`npm run dev\` - Inicia o servidor de desenvolvimento
+- \`npm run build\` - Gera a build de produção
+- \`npm start\` - Inicia o servidor de produção
+- \`npm run lint\` - Executa o linter
 
-## 📱 Contato
+## 📱 Responsividade
 
-- Instagram: [@oafetoartesanal](https://www.instagram.com/oafetoartesanal/)
-- WhatsApp: [(83) 98835-6953](https://api.whatsapp.com/send/?phone=5583988356953)
+O site é totalmente responsivo e otimizado para:
+- Desktops (1024px+)
+- Tablets (768px+)
+- Smartphones (320px+)
 
-## 📝 Licença
+## 🎨 Cores e Design
+
+- **Cores Principais**
+  - Brand Light: #F9F5F1
+  - Brand Dark: #2D2D2D
+  - Brand Accent: #D4A373
+  - Brand Beige: #FEFAE0
+  - Brand Muted: #666666
+
+- **Tipografia**
+  - Display: Playfair Display
+  - Body: Inter
+  - Handwriting: Dancing Script
+
+## 🔒 Segurança
+
+- Sanitização de inputs
+- Proteção contra XSS
+- Headers de segurança
+- Validação de dados
+
+## 📈 Performance
+
+- Otimização de imagens
+- Code splitting
+- Lazy loading
+- Minificação de assets
+- Caching otimizado
+
+## 🌐 SEO
+
+- Meta tags otimizadas
+- Sitemap XML
+- Robots.txt
+- Schema markup
+- URLs amigáveis
+
+## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+## 👥 Contribuição
+
+1. Faça um Fork do projeto
+2. Crie uma Branch para sua Feature (\`git checkout -b feature/AmazingFeature\`)
+3. Faça o Commit das suas mudanças (\`git commit -m 'Add some AmazingFeature'\`)
+4. Faça o Push para a Branch (\`git push origin feature/AmazingFeature\`)
+5. Abra um Pull Request
+
+## 📞 Suporte
+
+Para suporte, entre em contato via:
+- WhatsApp: [+55 83 98835-6953](https://wa.me/5583988356953)
+- Instagram: [@afetoartesanal](https://instagram.com/afetoartesanal)
+
+## ✨ Agradecimentos
+
+- Design e desenvolvimento: [@DevAngeloOliveira](https://github.com/DevAngeloOliveira)
+- Logo e identidade visual: Afeto Artesanal
+
 ---
 
-Desenvolvido com ❤️ por [Angelo Oliveira](https://github.com/DevAngeloOliveira)
+Feito com 💝 para Afeto Artesanal
