@@ -1,7 +1,8 @@
 import { Product } from '../types/Product';
-import { FiX, FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
+import { FiX, FiPlus, FiMinus, FiTrash2, FiChevronRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface CartItem extends Product {
   quantity: number;
@@ -49,7 +50,6 @@ export default function Cart({
         .map((item) => `• ${item.quantity}x ${item.name}\n   ↳ Valor unitário: R$ ${item.price.toFixed(2)}\n   ↳ Subtotal: R$ ${(item.price * item.quantity).toFixed(2)}`)
         .join('\n\n')}` +
       
-      // Seção de Adicionais
       `${selectedAdditionals.length > 0 ? '\n\n*🎀 ADICIONAIS SELECIONADOS:*\n' + 
         selectedAdditionals
           .map((item) => {
@@ -59,13 +59,11 @@ export default function Cart({
           .join('\n\n')
         : ''}` +
       
-      // Resumo do Pedido
       `\n\n*💫 RESUMO DO PEDIDO:*\n` +
       `📦 Produtos: R$ ${subtotal.toFixed(2)}` +
       `${selectedAdditionals.length > 0 ? '\n🎀 Adicionais: R$ ' + additionalsTotal.toFixed(2) : ''}` +
       `\n💝 *Total do Pedido: R$ ${total.toFixed(2)}*` +
       
-      // Informações Adicionais
       `\n\n*ℹ️ INFORMAÇÕES IMPORTANTES:*\n` +
       `• Todos os produtos são feitos artesanalmente com muito carinho\n` +
       `• O prazo de produção será informado após a confirmação do pedido\n` +
@@ -83,35 +81,50 @@ export default function Cart({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
-      <div className="bg-white w-full max-w-md h-full p-6 flex flex-col">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold text-brand-dark">Seu Carrinho</h2>
-          <button
-            onClick={onClose}
-            className="text-brand-muted hover:text-brand-dark transition-colors p-1"
-          >
-            <FiX className="text-xl" />
-          </button>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex justify-end">
+      <div className="bg-white w-full max-w-md h-full flex flex-col">
+        {/* Header */}
+        <div className="p-6 border-b border-brand-accent/10">
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-display text-brand-dark">Seu Carrinho</h2>
+            <button
+              onClick={onClose}
+              className="text-brand-muted hover:text-brand-dark transition-colors p-1 rounded-full hover:bg-brand-beige/10"
+            >
+              <FiX className="text-xl" />
+            </button>
+          </div>
         </div>
 
+        {/* Content */}
         <div className="flex-1 overflow-y-auto">
           {items.length === 0 ? (
-            <div className="text-center py-8">
+            <div className="h-full flex flex-col items-center justify-center p-8 text-center">
+              <div className="w-16 h-16 rounded-full bg-brand-beige/30 flex items-center justify-center mb-4">
+                <FiTrash2 className="text-2xl text-brand-accent/50" />
+              </div>
               <p className="text-brand-muted mb-4">Seu carrinho está vazio</p>
-              <p className="text-brand-accent text-sm">Adicione produtos para fazer seu pedido</p>
+              <Link
+                href="/catalogo"
+                className="text-brand-accent hover:text-brand-dark transition-colors flex items-center gap-2 group"
+                onClick={onClose}
+              >
+                Ver Catálogo
+                <FiChevronRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           ) : (
-            <>
-              <div className="space-y-4 mb-6">
+            <div className="p-6 space-y-6">
+              {/* Produtos */}
+              <div className="space-y-4">
                 {items.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center gap-4 bg-brand-beige p-4 rounded-lg"
+                    className="flex gap-4 p-4 bg-brand-beige/10 rounded-xl group"
                   >
-                    <div className="relative w-20 h-20">
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-brand-beige/20 flex-shrink-0">
                       {item.category === 'buque-borboleta' ? (
-                        <div className="w-full h-full flex items-center justify-center bg-brand-beige/50 rounded-md">
+                        <div className="w-full h-full flex items-center justify-center">
                           <span className="text-brand-accent text-sm text-center px-2">Buquê de Borboleta</span>
                         </div>
                       ) : (
@@ -119,56 +132,63 @@ export default function Cart({
                           src={item.image || ''}
                           alt={item.name}
                           fill
-                          sizes="80px"
-                          className="object-cover rounded-md"
-                          loading="eager"
-                          quality={75}
-                          unoptimized={false}
+                          className="object-cover"
                         />
                       )}
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-brand-dark">{item.name}</h3>
-                      <p className="text-sm text-brand-accent">
-                        R$ {item.price.toFixed(2)}
-                      </p>
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="font-medium text-brand-dark group-hover:text-brand-accent transition-colors">
+                            <Link href={`/produto/${item.id}`} onClick={onClose}>
+                              {item.name}
+                            </Link>
+                          </h3>
+                          <p className="text-sm text-brand-accent">
+                            R$ {item.price.toFixed(2)}
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => onRemoveItem(item.id)}
+                          className="text-brand-muted hover:text-brand-accent transition-colors p-1"
+                          title="Remover item"
+                        >
+                          <FiTrash2 />
+                        </button>
+                      </div>
                       <div className="flex items-center gap-2 mt-2">
                         <button
                           onClick={() => onUpdateQuantity(item.id, Math.max(0, item.quantity - 1))}
-                          className="w-8 h-8 flex items-center justify-center text-brand-accent hover:text-brand-dark border border-brand-accent/20 rounded-full hover:bg-brand-beige transition-colors"
+                          className="w-6 h-6 rounded-full border border-brand-accent/20 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-white transition-colors"
                         >
-                          <FiMinus />
+                          <FiMinus className="text-sm" />
                         </button>
-                        <span className="px-2 min-w-[2rem] text-center text-brand-dark">{item.quantity}</span>
+                        <span className="w-8 text-center text-brand-dark">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                          className="w-8 h-8 flex items-center justify-center text-brand-accent hover:text-brand-dark border border-brand-accent/20 rounded-full hover:bg-brand-beige transition-colors"
+                          className="w-6 h-6 rounded-full border border-brand-accent/20 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-white transition-colors"
                         >
-                          <FiPlus />
+                          <FiPlus className="text-sm" />
                         </button>
                       </div>
                     </div>
-                    <button
-                      onClick={() => onRemoveItem(item.id)}
-                      className="text-brand-muted hover:text-brand-accent transition-colors p-2"
-                      title="Remover item"
-                    >
-                      <FiTrash2 className="text-lg" />
-                    </button>
                   </div>
                 ))}
               </div>
 
               {/* Adicionais */}
-              <div className="border-t border-brand-beige pt-6 mb-6">
-                <h3 className="font-semibold text-brand-dark mb-4">Adicionais</h3>
+              <div className="border-t border-brand-accent/10 pt-6">
+                <h3 className="font-display text-lg text-brand-dark mb-4">Adicionais</h3>
                 <div className="space-y-3">
                   {additionals.map((additional) => {
                     const isSelected = selectedAdditionals.some(item => item.id === additional.id);
                     const selectedItem = selectedAdditionals.find(item => item.id === additional.id);
 
                     return (
-                      <div key={additional.id} className="flex items-center justify-between p-3 bg-brand-beige/30 rounded-lg">
+                      <div
+                        key={additional.id}
+                        className="flex items-center justify-between p-3 rounded-lg bg-brand-beige/10 border border-brand-accent/10"
+                      >
                         <div className="flex items-center gap-3">
                           <input
                             type="checkbox"
@@ -185,16 +205,16 @@ export default function Cart({
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => onAdditionalQuantity(additional.id, (selectedItem?.quantity || 1) - 1)}
-                              className="w-6 h-6 flex items-center justify-center text-brand-accent hover:text-brand-dark border border-brand-accent/20 rounded-full hover:bg-brand-beige transition-colors"
+                              className="w-6 h-6 rounded-full border border-brand-accent/20 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-white transition-colors"
                             >
                               <FiMinus className="text-sm" />
                             </button>
-                            <span className="px-2 min-w-[1.5rem] text-center text-brand-dark text-sm">
+                            <span className="w-6 text-center text-brand-dark text-sm">
                               {selectedItem?.quantity || 1}
                             </span>
                             <button
                               onClick={() => onAdditionalQuantity(additional.id, (selectedItem?.quantity || 1) + 1)}
-                              className="w-6 h-6 flex items-center justify-center text-brand-accent hover:text-brand-dark border border-brand-accent/20 rounded-full hover:bg-brand-beige transition-colors"
+                              className="w-6 h-6 rounded-full border border-brand-accent/20 flex items-center justify-center text-brand-accent hover:bg-brand-accent hover:text-white transition-colors"
                             >
                               <FiPlus className="text-sm" />
                             </button>
@@ -205,40 +225,42 @@ export default function Cart({
                   })}
                 </div>
               </div>
-            </>
+            </div>
           )}
         </div>
 
-        <div className="mt-6 pt-6 border-t border-brand-beige">
-          <div className="space-y-2 mb-4">
-            <div className="flex justify-between items-center">
-              <span className="text-brand-muted">Subtotal</span>
-              <span className="text-brand-dark">R$ {subtotal.toFixed(2)}</span>
-            </div>
-            {selectedAdditionals.length > 0 && (
-              <div className="flex justify-between items-center">
-                <span className="text-brand-muted">Adicionais</span>
-                <span className="text-brand-dark">R$ {additionalsTotal.toFixed(2)}</span>
+        {/* Footer */}
+        {items.length > 0 && (
+          <div className="border-t border-brand-accent/10 p-6">
+            <div className="space-y-3 mb-6">
+              <div className="flex justify-between items-center text-brand-muted">
+                <span>Subtotal</span>
+                <span>R$ {subtotal.toFixed(2)}</span>
               </div>
-            )}
-            <div className="flex justify-between items-center text-lg font-semibold">
-              <span className="text-brand-dark">Total do Pedido</span>
-              <span className="text-brand-dark">R$ {total.toFixed(2)}</span>
+              {selectedAdditionals.length > 0 && (
+                <div className="flex justify-between items-center text-brand-muted">
+                  <span>Adicionais</span>
+                  <span>R$ {additionalsTotal.toFixed(2)}</span>
+                </div>
+              )}
+              <div className="flex justify-between items-center text-lg font-display text-brand-dark pt-3 border-t border-brand-accent/10">
+                <span>Total</span>
+                <span>R$ {total.toFixed(2)}</span>
+              </div>
             </div>
+            <button
+              onClick={handleWhatsAppCheckout}
+              className="w-full bg-brand-accent text-brand-light py-4 rounded-full hover:bg-brand-dark transition-all flex items-center justify-center gap-3 text-lg group"
+            >
+              <FaWhatsapp className="text-xl transition-transform group-hover:scale-110" />
+              <span>Finalizar Pedido</span>
+              <span className="text-sm">({items.length} {items.length === 1 ? 'item' : 'itens'})</span>
+            </button>
+            <p className="text-sm text-brand-muted text-center mt-4">
+              Ao finalizar, você será redirecionado para o WhatsApp para confirmar seu pedido
+            </p>
           </div>
-          <button
-            onClick={handleWhatsAppCheckout}
-            disabled={items.length === 0}
-            className="w-full bg-brand-accent text-brand-light py-3 rounded-full hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-          >
-            <FaWhatsapp className="text-xl" />
-            <span>Finalizar Pedido via WhatsApp</span>
-            {items.length > 0 && <span>({items.length} {items.length === 1 ? 'item' : 'itens'})</span>}
-          </button>
-          <p className="text-sm text-brand-muted text-center mt-4">
-            Ao finalizar, você será redirecionado para o WhatsApp para confirmar seu pedido
-          </p>
-        </div>
+        )}
       </div>
     </div>
   );

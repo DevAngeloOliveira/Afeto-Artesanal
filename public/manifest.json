@@ -1,0 +1,23 @@
+{
+  "name": "Afeto Artesanal",
+  "short_name": "Afeto Artesanal",
+  "description": "Artesanato feito com amor e dedicação. Buquês eternos, decoração e presentes personalizados.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E5DDD3",
+  "theme_color": "#8B7355",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait",
+  "lang": "pt-BR"
+} 
